@@ -1,0 +1,1319 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicación Asertiva para el Liderazgo</title>
+    <style>
+        :root {
+            --primary-color: #6a5acd;
+            --secondary-color: #4682b4;
+            --accent-color: #ff69b4;
+            --light-color: #f0f8ff;
+            --dark-color: #2f4f4f;
+            --text-color: #333;
+            --white: #fff;
+            --shadow: 0 4px 8px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem 0;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            color: var(--dark-color);
+        }
+
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+            padding-top: 1rem;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .card {
+            background: var(--light-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card p {
+            margin-bottom: 1rem;
+        }
+
+        .technique-card {
+            background: linear-gradient(135deg, #e6f7ff 0%, #ffffff 100%);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .technique-card:hover {
+            border-color: var(--primary-color);
+            background: linear-gradient(135deg, #d0eaff 0%, #ffffff 100%);
+        }
+
+        .benefit-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .benefit-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .benefit-list li:before {
+            content: "✓";
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary-color);
+        }
+
+        .timeline-item:after {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 10px;
+            bottom: -1rem;
+            width: 2px;
+            background: var(--secondary-color);
+        }
+
+        .timeline-item:last-child:after {
+            display: none;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .interactive-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: var(--transition);
+            margin: 1rem 0;
+            display: inline-block;
+        }
+
+        .interactive-btn:hover {
+            background: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+        .quiz-container {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light-color);
+        }
+
+        .quiz-progress {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .quiz-question {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-option {
+            padding: 1rem;
+            background: var(--light-color);
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quiz-option:hover {
+            background: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+
+        .quiz-option.selected {
+            border-color: var(--primary-color);
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .quiz-option::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #999;
+            flex-shrink: 0;
+        }
+
+        .quiz-option.selected::before {
+            background-color: white;
+            border-color: var(--primary-color);
+        }
+
+        .quiz-option.selected::after {
+            content: '';
+            position: relative;
+            left: 7px;
+            top: 2px;
+            width: 6px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .quiz-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+
+        .quiz-result {
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: #eee;
+            border-radius: 5px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: var(--primary-color);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .accordion {
+            background: white;
+            border-radius: 10px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            padding: 1rem;
+            background: var(--light-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .accordion-header:hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .accordion-content {
+            padding: 1rem;
+            display: none;
+            background: #fafafa;
+        }
+
+        .accordion-content.active {
+            display: block;
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, var(--accent-color) 0%, var(--secondary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            color: var(--dark-color);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                max-width: 300px;
+            }
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: black;
+            text-decoration: none;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin: 0 0.25rem 0.25rem 0;
+        }
+
+        .badge-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .badge-secondary {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .badge-accent {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* Interactive elements */
+        .interactive-element {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .interactive-element:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Progress indicator */
+        .progress-indicator {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .step-circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .step.active .step-circle {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .step-line {
+            flex-grow: 1;
+            height: 2px;
+            background: #ddd;
+            margin: 0 1rem;
+        }
+
+        .step.active ~ .step .step-line {
+            background: var(--primary-color);
+        }
+
+        .step-label {
+            font-size: 0.8rem;
+            text-align: center;
+            width: 100px;
+        }
+
+        /* Floating action button */
+        .fab {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 100;
+        }
+
+        .fab:hover {
+            background: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        /* Responsive design for small screens */
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .section {
+                padding: 1rem;
+            }
+            
+            .card {
+                padding: 1rem;
+            }
+            
+            .logo {
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo Animikdemine" class="logo pulse">
+            </div>
+            <h1>Comunicación Asertiva para el Liderazgo</h1>
+            <p class="subtitle">Plan de Capacitación para la Colaboración Efectiva</p>
+            <div class="intro">
+                Transforma tu estilo de comunicación en una ventaja estratégica. Este plan integral te guiará desde los fundamentos hasta técnicas avanzadas para liderar con claridad, respeto y eficacia.
+            </div>
+        </header>
+
+        <!-- Sección 1: Fundamentos -->
+        <div class="section" onclick="toggleContent('fundamentos')">
+            <h2 class="section-title">
+                <span>🔍</span> 1.0 Fundamentos de la Comunicación Asertiva
+            </h2>
+            <div id="fundamentos" class="content">
+                <p>La comunicación asertiva es la habilidad para expresar pensamientos, emociones y necesidades de manera clara, directa y respetuosa, defendiendo los propios derechos sin violar los de los demás.</p>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <h3><span>⚖️</span> ¿Por qué es Estratégica?</h3>
+                        <p>No es solo una "habilidad blanda". Es un pilar fundamental para:</p>
+                        <ul class="benefit-list">
+                            <li>Fortalecer la confianza y reducir el estrés</li>
+                            <li>Minimizar malentendidos y conflictos</li>
+                            <li>Construir una cultura organizacional positiva</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3><span>🎯</span> Beneficios Clave</h3>
+                        <ul class="benefit-list">
+                            <li>Mejora del clima laboral</li>
+                            <li>Aumento de la productividad</li>
+                            <li>Fortalecimiento del liderazgo</li>
+                            <li>Bienestar del equipo</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Tabla de estilos de comunicación -->
+                <div style="margin-top: 1.5rem; overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                        <thead>
+                            <tr style="background: var(--primary-color); color: white;">
+                                <th style="padding: 1rem; text-align: left;">Estilo</th>
+                                <th style="padding: 1rem; text-align: left;">Características</th>
+                                <th style="padding: 1rem; text-align: left;">Consecuencias</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 1rem; font-weight: bold; color: #d9534f;">Pasivo</td>
+                                <td>Evita el conflicto, no expresa opiniones</td>
+                                <td>Frustración, resentimiento acumulado</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 1rem; font-weight: bold; color: #f0ad4e;">Agresivo</td>
+                                <td>Dominio a toda costa, falta de respeto</td>
+                                <td>Ambiente tenso, deterioro de relaciones</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 1rem; font-weight: bold; color: #5cb85c;">Asertivo</td>
+                                <td>Respeto mutuo, búsqueda de soluciones</td>
+                                <td>Confianza, colaboración efectiva</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección 2: Componentes -->
+        <div class="section" onclick="toggleContent('componentes')">
+            <h2 class="section-title">
+                <span>🛠️</span> 2.0 Componentes de la Conducta Asertiva
+            </h2>
+            <div id="componentes" class="content">
+                <p>La asertividad es una sinfonía entre palabras, tono y lenguaje corporal. La coherencia entre estos elementos transmite credibilidad.</p>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <h3><span>💬</span> Comunicación Verbal</h3>
+                        <p><strong>Técnica del "Yo":</strong></p>
+                        <p>En lugar de decir "Ese cambio es una mala idea", di:</p>
+                        <blockquote style="border-left: 4px solid var(--accent-color); padding-left: 1rem; margin: 1rem 0; color: var(--dark-color);">
+                            "Yo no estoy de acuerdo con aplicar ese cambio."
+                        </blockquote>
+                        <p>Esto asume responsabilidad por tu perspectiva sin acusar.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3><span>👁️</span> Comunicación No Verbal</h3>
+                        <ul class="benefit-list">
+                            <li><strong>Postura:</strong> Erguida pero relajada</li>
+                            <li><strong>Contacto visual:</strong> Equilibrado y presente</li>
+                            <li><strong>Gestos:</strong> Abiertos y naturales</li>
+                            <li><strong>Espacio:</strong> Respetar distancia personal</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3><span>👂</span> Escucha Activa</h3>
+                        <p>No basta con hablar. Escuchar activamente demuestra respeto:</p>
+                        <ul class="benefit-list">
+                            <li>Asentir con la cabeza</li>
+                            <li>Inclinarse ligeramente hacia adelante</li>
+                            <li>Parafrasear para confirmar comprensión</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección 3: Técnicas Prácticas -->
+        <div class="section" onclick="toggleContent('tecnicas')">
+            <h2 class="section-title">
+                <span>🔧</span> 3.0 Caja de Herramientas: Técnicas Prácticas
+            </h2>
+            <div id="tecnicas" class="content">
+                <p>Herramientas específicas para manejar conversaciones difíciles de forma constructiva.</p>
+                
+                <div class="card-grid">
+                    <div class="technique-card card">
+                        <h3><span>🔄</span> Técnica del Disco Rayado</h3>
+                        <p>Mantén tu postura firme sin ceder ni volverte agresivo.</p>
+                        <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                            <p><strong>Colaborador:</strong> "Necesito más tiempo para el proyecto."</p>
+                            <p><strong>Líder:</strong> "Entiendo que lo desearías, pero la fecha de entrega es viernes."</p>
+                            <p><strong>Colaborador:</strong> "Pero la calidad será mejor con más tiempo."</p>
+                            <p><strong>Líder:</strong> "Aprecio tu compromiso con la calidad. La fecha se mantiene para viernes."</p>
+                        </div>
+                    </div>
+                    
+                    <div class="technique-card card">
+                        <h3><span>🌫️</span> Técnica del Banco de Niebla</h3>
+                        <p>Reconoce el punto del otro sin ceder en tu decisión.</p>
+                        <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                            <p><strong>Manager:</strong> "Implementaremos el nuevo software el próximo mes."</p>
+                            <p><strong>Colaborador:</strong> "No estoy de acuerdo, nos retrasará."</p>
+                            <p><strong>Manager:</strong> "Entiendo tu preocupación sobre el tiempo de adaptación. Sin embargo, he evaluado los beneficios a largo plazo y mantengo la decisión."</p>
+                        </div>
+                    </div>
+                    
+                    <div class="technique-card card">
+                        <h3><span>❓</span> Pregunta Asertiva</h3>
+                        <p>Transforma críticas en oportunidades de colaboración.</p>
+                        <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                            <p><strong>Supervisor:</strong> "Este informe no es claro."</p>
+                            <p><strong>Colaborador:</strong> "Entiendo. Para asegurar que el próximo sea exactamente lo que necesitas, ¿qué podríamos hacer para ajustarlo mejor?"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="technique-card card">
+                        <h3><span>⏸️</span> Aplazamiento Asertivo</h3>
+                        <p>Pospón discusiones cuando las emociones están altas.</p>
+                        <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                            <p><strong>Jefe de equipo:</strong> "Veo que este tema te afecta mucho. Propongo hablar con más calma en una hora, cuando podamos abordarlo de forma constructiva."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección 4: Aplicaciones Estratégicas -->
+        <div class="section" onclick="toggleContent('aplicaciones')">
+            <h2 class="section-title">
+                <span>🚀</span> 4.0 Aplicaciones Estratégicas
+            </h2>
+            <div id="aplicaciones" class="content">
+                <p>El verdadero valor de la asertividad se revela en situaciones críticas.</p>
+                
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>📊 Dar y Recibir Feedback Constructivo</span>
+                        <span class="toggle-icon">▶</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Dar Feedback:</strong></p>
+                        <blockquote style="border-left: 4px solid var(--secondary-color); padding-left: 1rem; margin: 1rem 0;">
+                            "He notado que algunos informes recientes no incluyen detalles clave. Me gustaría que le dediques más tiempo a la revisión, puesto que estoy seguro de que tienes la capacidad para mejorar. ¿Qué apoyo necesitas?"
+                        </blockquote>
+                        
+                        <p><strong>Recibir Críticas:</strong></p>
+                        <ol style="padding-left: 1.5rem; margin: 1rem 0;">
+                            <li>Pedir detalles específicos</li>
+                            <li>Parafrasear para confirmar comprensión</li>
+                            <li>Expresar tu opinión con mensajes "yo"</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>🤝 Negociación y Resolución de Conflictos</span>
+                        <span class="toggle-icon">▶</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Busca soluciones de "ganar-ganar":</p>
+                        <blockquote style="border-left: 4px solid var(--secondary-color); padding-left: 1rem; margin: 1rem 0;">
+                            "Valoro tu opinión y aprecio que la compartas conmigo. Al mismo tiempo, me gustaría exponer mi perspectiva para que podamos encontrar juntos una solución que funcione para todos."
+                        </blockquote>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>⛔ Establecer Límites Profesionales</span>
+                        <span class="toggle-icon">▶</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Saber decir "no" es crucial para prevenir el burnout:</p>
+                        <ul class="benefit-list">
+                            <li>"No podré participar, porque estaré de vacaciones."</li>
+                            <li>"No aceptaré trabajos después de la fecha de entrega."</li>
+                            <li>"Creo que el diseño anterior era mejor que este."</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección 5: Hoja de Ruta -->
+        <div class="section" onclick="toggleContent('ruta')">
+            <h2 class="section-title">
+                <span>🗺️</span> 5.0 Hoja de Ruta para el Desarrollo
+            </h2>
+            <div id="ruta" class="content">
+                <p>La asertividad se desarrolla con práctica deliberada.</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-number">1</span>
+                        <div class="timeline-content">
+                            <h3>Autoevaluación del Estilo Actual</h3>
+                            <p>¿Te quedas callado para evitar conflictos? ¿Dices "sí" cuando estás sobrecargado?</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <span class="timeline-number">2</span>
+                        <div class="timeline-content">
+                            <h3>Identificar Áreas de Práctica</h3>
+                            <p>Enfócate en 1-2 situaciones recurrentes (reuniones, delegación, etc.).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <span class="timeline-number">3</span>
+                        <div class="timeline-content">
+                            <h3>Preparar y Ensayar</h3>
+                            <p>Anticipa conversaciones importantes y ensaya lo que dirás.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <span class="timeline-number">4</span>
+                        <div class="timeline-content">
+                            <h3>Empezar con Situaciones de Bajo Riesgo</h3>
+                            <p>Practica con colegas de confianza antes de escenarios críticos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <span class="timeline-number">5</span>
+                        <div class="timeline-content">
+                            <h3>Solicitar Retroalimentación</h3>
+                            <p>"Estoy trabajando en ser más claro, ¿cómo te pareció mi intervención hoy?"</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="interactive-btn" onclick="openModal('finalModal')">¡Empieza tu Transformación Hoy!</button>
+            </div>
+        </div>
+
+        <!-- Quiz Interactivo -->
+        <div class="quiz-container">
+            <h2 class="section-title"><span>🧠</span> Evaluación Interactiva</h2>
+            
+            <div class="quiz-header">
+                <div class="quiz-progress">Pregunta <span id="current-question">1</span> de <span id="total-questions">5</span></div>
+                <div class="quiz-score">Puntuación: <span id="score">0</span>/5</div>
+            </div>
+            
+            <div class="quiz-question" id="quiz-question">
+                ¿Cuál es el propósito principal de la técnica del "Disco Rayado"?
+            </div>
+            
+            <div class="quiz-options" id="quiz-options">
+                <div class="quiz-option" data-value="correct">Mantener una postura firme sin volverse agresivo</div>
+                <div class="quiz-option" data-value="incorrect">Evitar completamente cualquier tipo de conflicto</div>
+                <div class="quiz-option" data-value="incorrect">Demostrar superioridad en una conversación</div>
+            </div>
+            
+            <div class="quiz-result" id="quizResult"></div>
+            
+            <div class="quiz-controls">
+                <button class="interactive-btn" id="prev-btn" onclick="prevQuestion()" disabled>Anterior</button>
+                <button class="interactive-btn" id="next-btn" onclick="nextQuestion()">Siguiente</button>
+            </div>
+        </div>
+
+        <!-- Modal de Cierre -->
+        <div id="finalModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('finalModal')">&times;</span>
+                <h2 style="color: var(--primary-color); margin-bottom: 1rem;">¡Tu Viaje hacia la Comunicación Asertiva Comienza Ahora!</h2>
+                <p>Has completado esta infografía interactiva sobre Comunicación Asertiva para el Liderazgo.</p>
+                <p>Recuerda que la asertividad no es un rasgo innato, sino una competencia que se desarrolla con práctica consciente.</p>
+                <p><strong>Siguiente paso:</strong> Elige una técnica y aplícala en tu próxima interacción profesional.</p>
+                <button class="interactive-btn" style="margin-top: 1rem;" onclick="closeModal('finalModal')">Cerrar</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2024 Plan de Capacitación - Comunicación Asertiva para el Liderazgo y la Colaboración Efectiva</p>
+            <p>Transformando interacciones diarias en motores de eficiencia operativa y bienestar organizacional.</p>
+        </footer>
+
+        <!-- Floating Action Button -->
+        <div class="fab" onclick="scrollToTop()" title="Volver arriba">
+            <span>⬆️</span>
+        </div>
+    </div>
+
+    <script>
+        // Definición de preguntas del quiz
+        const quizQuestions = [
+            {
+                question: "¿Cuál es el propósito principal de la técnica del 'Disco Rayado'?",
+                options: [
+                    "Mantener una postura firme sin volverse agresivo",
+                    "Evitar completamente cualquier tipo de conflicto",
+                    "Demostrar superioridad en una conversación"
+                ],
+                correct: 0
+            },
+            {
+                question: "¿Qué caracteriza a la comunicación asertiva frente a otros estilos?",
+                options: [
+                    "Defender los derechos propios sin considerar a los demás",
+                    "Evitar expresar opiniones para no generar conflicto",
+                    "Expresar sentimientos y opiniones de forma honesta y respetuosa"
+                ],
+                correct: 2
+            },
+            {
+                question: "¿Cuál es el beneficio principal de utilizar mensajes en primera persona ('yo pienso', 'yo siento')?",
+                options: [
+                    "Hacer que el otro se sienta culpable",
+                    "Asumir responsabilidad por nuestras percepciones sin acusar",
+                    "Demostrar autoridad en la conversación"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Qué técnica se utiliza al reconocer parcialmente el argumento del otro pero mantener tu postura?",
+                options: [
+                    "Técnica del Disco Rayado",
+                    "Técnica del Banco de Niebla",
+                    "Técnica de la Pregunta Asertiva"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Por qué es importante establecer límites profesionales?",
+                options: [
+                    "Para demostrar autoridad sobre los demás",
+                    "Para prevenir el agotamiento y gestionar la carga de trabajo",
+                    "Para evitar cualquier tipo de responsabilidad"
+                ],
+                correct: 1
+            }
+        ];
+
+        // Variables del estado del quiz
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let selectedOptionIndex = null;
+
+        // Elementos del DOM
+        const questionElement = document.getElementById('quiz-question');
+        const optionsContainer = document.getElementById('quiz-options');
+        const resultElement = document.getElementById('quizResult');
+        const currentQuestionElement = document.getElementById('current-question');
+        const totalQuestionsElement = document.getElementById('total-questions');
+        const scoreElement = document.getElementById('score');
+        const prevButton = document.getElementById('prev-btn');
+        const nextButton = document.getElementById('next-btn');
+
+        // Inicialización del quiz
+        function initQuiz() {
+            totalQuestionsElement.textContent = quizQuestions.length;
+            showQuestion(currentQuestionIndex);
+        }
+
+        // Mostrar pregunta actual
+        function showQuestion(index) {
+            const question = quizQuestions[index];
+            questionElement.textContent = question.question;
+            
+            // Limpiar opciones anteriores
+            optionsContainer.innerHTML = '';
+            
+            // Crear nuevas opciones
+            question.options.forEach((option, i) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'quiz-option';
+                if (selectedOptionIndex === i && index === currentQuestionIndex) {
+                    optionElement.classList.add('selected');
+                }
+                optionElement.textContent = option;
+                optionElement.addEventListener('click', () => selectOption(i));
+                optionsContainer.appendChild(optionElement);
+            });
+            
+            // Actualizar contador
+            currentQuestionElement.textContent = index + 1;
+            scoreElement.textContent = score;
+            
+            // Actualizar botones
+            prevButton.disabled = index === 0;
+            nextButton.textContent = index === quizQuestions.length - 1 ? 'Finalizar' : 'Siguiente';
+            
+            // Limpiar resultado anterior
+            resultElement.style.display = 'none';
+            resultElement.textContent = '';
+        }
+
+        // Seleccionar opción
+        function selectOption(optionIndex) {
+            // Remover selección anterior
+            const options = optionsContainer.querySelectorAll('.quiz-option');
+            options.forEach(option => option.classList.remove('selected'));
+            
+            // Agregar nueva selección
+            options[optionIndex].classList.add('selected');
+            selectedOptionIndex = optionIndex;
+        }
+
+        // Ir a la siguiente pregunta
+        function nextQuestion() {
+            if (selectedOptionIndex === null) {
+                alert('Por favor, selecciona una opción antes de continuar.');
+                return;
+            }
+            
+            // Verificar respuesta
+            if (selectedOptionIndex === quizQuestions[currentQuestionIndex].correct) {
+                if (currentQuestionIndex === quizQuestions.length - 1) {
+                    score++;
+                    resultElement.textContent = `¡Correcto! Has respondido correctamente la última pregunta.`;
+                    resultElement.style.background = '#d4edda';
+                    resultElement.style.color = '#155724';
+                    resultElement.style.display = 'block';
+                } else {
+                    resultElement.textContent = `¡Correcto! Avanza a la siguiente pregunta.`;
+                    resultElement.style.background = '#d4edda';
+                    resultElement.style.color = '#155724';
+                    resultElement.style.display = 'block';
+                    score++;
+                }
+            } else {
+                const correctAnswer = quizQuestions[currentQuestionIndex].options[quizQuestions[currentQuestionIndex].correct];
+                resultElement.textContent = `Incorrecto. La respuesta correcta es: "${correctAnswer}"`;
+                resultElement.style.background = '#f8d7da';
+                resultElement.style.color = '#721c24';
+                resultElement.style.display = 'block';
+            }
+            
+            // Si no es la última pregunta, esperar un momento antes de avanzar
+            if (currentQuestionIndex < quizQuestions.length - 1) {
+                setTimeout(() => {
+                    currentQuestionIndex++;
+                    selectedOptionIndex = null;
+                    showQuestion(currentQuestionIndex);
+                    resultElement.style.display = 'none';
+                }, 1500);
+            } else {
+                // Última pregunta, mostrar resultados finales
+                setTimeout(() => {
+                    showFinalResults();
+                }, 1500);
+            }
+        }
+
+        // Ir a la pregunta anterior
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                // Restaurar selección si existe
+                const previousAnswer = localStorage.getItem(`answer_${currentQuestionIndex}`);
+                selectedOptionIndex = previousAnswer ? parseInt(previousAnswer) : null;
+                showQuestion(currentQuestionIndex);
+            }
+        }
+
+        // Mostrar resultados finales
+        function showFinalResults() {
+            questionElement.textContent = `¡Felicitaciones! Has completado la evaluación.`;
+            
+            const percentage = (score / quizQuestions.length) * 100;
+            let message = '';
+            let backgroundColor = '';
+            
+            if (percentage >= 80) {
+                message = `Excelente desempeño (${score}/${quizQuestions.length}). Dominas los fundamentos de la comunicación asertiva.`;
+                backgroundColor = '#d4edda';
+            } else if (percentage >= 60) {
+                message = `Buen resultado (${score}/${quizQuestions.length}). Tienes una buena base en comunicación asertiva.`;
+                backgroundColor = '#d1ecf1';
+            } else {
+                message = `Resultado (${score}/${quizQuestions.length}). Te recomendamos repasar los contenidos para fortalecer tus conocimientos.`;
+                backgroundColor = '#fff3cd';
+            }
+            
+            // Limpiar opciones
+            optionsContainer.innerHTML = '';
+            
+            // Mostrar resultado
+            resultElement.textContent = message;
+            resultElement.style.background = backgroundColor;
+            resultElement.style.color = '#000';
+            resultElement.style.display = 'block';
+            
+            // Ocultar botones de control
+            document.querySelector('.quiz-controls').style.display = 'none';
+            
+            // Botón para reiniciar
+            const restartButton = document.createElement('button');
+            restartButton.className = 'interactive-btn';
+            restartButton.textContent = 'Realizar de Nuevo';
+            restartButton.style.marginTop = '1rem';
+            restartButton.onclick = restartQuiz;
+            document.querySelector('.quiz-container').appendChild(restartButton);
+        }
+
+        // Reiniciar quiz
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            selectedOptionIndex = null;
+            
+            // Limpiar almacenamiento local
+            for (let i = 0; i < quizQuestions.length; i++) {
+                localStorage.removeItem(`answer_${i}`);
+            }
+            
+            // Restaurar interfaz
+            document.querySelector('.quiz-controls').style.display = 'flex';
+            const restartButton = document.querySelector('.quiz-container .interactive-btn:last-child');
+            if (restartButton) {
+                restartButton.remove();
+            }
+            
+            // Mostrar primera pregunta
+            showQuestion(currentQuestionIndex);
+        }
+
+        // Funciones para otras partes de la infografía
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            const allContents = document.querySelectorAll('.content');
+            
+            allContents.forEach(el => {
+                if (el.id !== id) {
+                    el.classList.remove('active');
+                }
+            });
+            
+            if (content) {
+                content.classList.toggle('active');
+            }
+        }
+
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.toggle-icon');
+            
+            if (content && icon) {
+                content.classList.toggle('active');
+                
+                if (icon.textContent === '▶') {
+                    icon.textContent = '▼';
+                } else {
+                    icon.textContent = '▶';
+                }
+            }
+        }
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'flex';
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        window.onclick = function(event) {
+            const modals = document.getElementsByClassName('modal');
+            for (let i = 0; i < modals.length; i++) {
+                if (event.target === modals[i]) {
+                    modals[i].style.display = 'none';
+                }
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Inicializar el quiz cuando la página cargue
+        document.addEventListener('DOMContentLoaded', function() {
+            initQuiz();
+            
+            // Auto-abrir primera sección después de un retraso
+            setTimeout(() => {
+                const firstSection = document.querySelector('.section');
+                if (firstSection) {
+                    firstSection.click();
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
